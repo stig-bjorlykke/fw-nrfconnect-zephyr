@@ -58,6 +58,13 @@ typedef struct zsock_fd_set {
 #define ZSOCK_MSG_PEEK 0x02
 #define ZSOCK_MSG_DONTWAIT 0x40
 
+/** Protocol level for socket. */
+#define SOL_SOCKET 0xffff
+
+#define ZSOCK_SO_ERROR 4
+#define ZSOCK_SO_RCVTIMEO 20
+#define ZSOCK_SO_BINDTODEVICE 25
+
 /** Protocol level for TLS.
  *  Here, the same socket protocol level for TLS as in Linux was used.
  */
@@ -361,6 +368,10 @@ static inline int inet_pton(sa_family_t family, const char *src, void *dst)
 
 #define MSG_PEEK ZSOCK_MSG_PEEK
 #define MSG_DONTWAIT ZSOCK_MSG_DONTWAIT
+
+#define SO_ERROR ZSOCK_SO_ERROR
+#define SO_RCVTIMEO ZSOCK_SO_RCVTIMEO
+#define SO_BINDTODEVICE ZSOCK_SO_BINDTODEVICE
 
 static inline char *inet_ntop(sa_family_t family, const void *src, char *dst,
 			      size_t size)
